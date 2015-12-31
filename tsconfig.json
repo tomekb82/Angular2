@@ -15,7 +15,8 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./app.ts",
+        "./voteApp.ts",
+        "./helloWorld.ts",
         "./typings/angular2/angular2.d.ts"
     ]
 }
