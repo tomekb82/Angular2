@@ -14,13 +14,16 @@ var angular2_1 = require("angular2/angular2");
 var VoteApp = (function () {
     function VoteApp() {
     }
+    VoteApp.prototype.addVote = function (title, link) {
+        console.log("Adding vote, title=" + title.value + ", link=" + link.value);
+    };
     VoteApp = __decorate([
         angular2_1.Component({
             selector: 'vote'
         }),
         angular2_1.View({
             directives: [angular2_1.NgFor],
-            template: "\n        <section class=\"new-link\">\n            <div class=\"control-group\">\n                <div><label for=\"title\">Movie title</label></div>\n                <div><input name=\"title\"></div>\n            </div>\n            <div class=\"control-group\">\n                <div><label for=\"link\">Link</label></div>\n                <div><input name=\"link\"></div>\n            </div>\n\n            <button>Submit</button>\n        </section>\n    "
+            template: "\n        <section class=\"new-link\">\n            <div class=\"control-group\">\n                <div><label for=\"title\">Movie title</label></div>\n                <div><input name=\"title\" #newtitle></div>\n            </div>\n            <div class=\"control-group\">\n                <div><label for=\"link\">Link</label></div>\n                <div><input name=\"link\" #newlink></div>\n            </div>\n\n            <button (click)=\"addVote(newtitle, newlink)\">Submit</button>\n        </section>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], VoteApp);
