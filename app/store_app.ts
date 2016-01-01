@@ -35,6 +35,7 @@ class Product {
                 <li><a href="/">Home</a></li>
                 <li><a href="storeApp.html">Product list</a></li>
                 <li><a href="voteApp.html">Vote Book</a></li>
+                <li><a href="formApp.html">Form Book</a></li>
                 <li>Help</li>
              </ul>
         </nav>

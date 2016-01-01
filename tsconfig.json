@@ -16,6 +16,7 @@
     ],
     "files": [
         "./app/vote_app.ts",
+        "./app/form_app.ts",
         "./app/store_app.ts",
         "./typings/angular2/angular2.d.ts"
     ]
