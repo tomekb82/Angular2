@@ -1,12 +1,70 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
+
 import {
     Component,
     View,
     NgFor,
     bootstrap
 } from "angular2/angular2";
-import {VoteBook} from "vote_book";
-import {Book} from "model/book";
+
+
+class Book {
+    title: string;
+    link: string;
+    votes: number;
+
+    constructor(title, link){
+        this.title = title;
+        this.link = link;
+        this.votes = 0;
+    }
+
+    voteUp(){
+        this.votes +=1;
+        return false;
+    }
+
+    voteDown(){
+        this.votes -=1;
+        return false;
+    }
+
+    domain(){
+        var link = this.link.split('//')[1];
+        return link.split('/')[0];
+    }
+}
+
+
+@Component({
+    selector: 'vote-book',
+    properties: ['book'], // to change after upgrade angular
+})
+@View({
+    template: `
+        <article>
+            <div class="votes">{{book.votes}}</div>
+            <div class="main">
+                <h2>
+                    <a href="{{book.link}}">{{book.title}}</a>
+                    <span>({{book.domain()}})</span>
+                </h2>
+                <ul>
+                    <li><a href (click)='book.voteUp()'>upvote</a></li>
+                    <li><a href (click)='book.voteDown()'>downvote</a></li>
+                </ul>
+            </div>
+        </article>
+    `
+})
+class VoteBook {
+    book: Book;
+
+}
+bootstrap(VoteBook);
+
+
+
 
 @Component({
     selector: 'vote'

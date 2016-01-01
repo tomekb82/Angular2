@@ -1,14 +1,13 @@
-/// <reference path="../typings/angular2/angular2.d.ts" />
+
 import {
     Component,
     View,
     bootstrap
 } from "angular2/angular2";
-import {Book} from "model/book";
 
 @Component({
     selector: 'vote-book',
-    properties/*inputs:*/: ['book'], // to change after upgrade angular
+    properties: ['book'], // to change after upgrade angular
 })
 @View({
     template: `
