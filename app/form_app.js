@@ -12,23 +12,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require("angular2/angular2");
 var angular2_2 = require("angular2/angular2");
-var FormApp = (function () {
-    function FormApp() {
+var SimpleForm = (function () {
+    function SimpleForm() {
     }
-    FormApp.prototype.onSubmit = function (value) {
-        console.log('you submitted value: ', value);
+    SimpleForm.prototype.onSubmit = function (value) {
+        console.log('SimpleForm: you submitted value: ', value);
     };
-    FormApp = __decorate([
+    SimpleForm = __decorate([
         angular2_1.Component({
-            selector: 'form-app'
+            selector: 'simple-form'
         }),
         angular2_1.View({
             directives: [angular2_2.formDirectives],
-            template: "\n  <div>\n    <h2>Form: Book store</h2>\n    <form #f=\"form\"\n          (submit)=\"onSubmit(f.value)\">\n\n      <div class=\"form-group\">\n        <label for=\"idInput\">ID</label>\n        <input type=\"text\" \n               class=\"form-control\" \n               id=\"idInput\"\n               placeholder=\"Book id\"\n               ng-control=\"id\">\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n    </form>\n  </div>\n  "
+            template: "\n  <div>\n    <h2>Simple form: Book store</h2>\n    <form #f=\"form\"\n          (submit)=\"onSubmit(f.value)\">\n\n      <div class=\"form-group\">\n        <label for=\"idInput\">ID</label>\n        <input type=\"text\" \n               class=\"form-control\" \n               id=\"idInput\"\n               placeholder=\"Book id\"\n               ng-control=\"id\">\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n    </form>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], FormApp);
-    return FormApp;
+    ], SimpleForm);
+    return SimpleForm;
 })();
-exports.FormApp = FormApp;
-angular2_1.bootstrap(FormApp);
+exports.SimpleForm = SimpleForm;
+angular2_1.bootstrap(SimpleForm);
+var BuilderForm = (function () {
+    function BuilderForm(fb) {
+        this.myForm = fb.group({
+            "id": [""],
+            "name": [""]
+        });
+    }
+    BuilderForm.prototype.onSubmit = function (value) {
+        console.log('BuilderForm: you submitted value: ', value);
+    };
+    BuilderForm = __decorate([
+        angular2_1.Component({
+            selector: 'builder-form',
+            viewInjector: [angular2_2.FormBuilder]
+        }),
+        angular2_1.View({
+            directives: [angular2_2.formDirectives],
+            template: "\n  <div>\n    <h2>Form Builder: Book store</h2>\n    <form [ng-form-model]=\"myForm\"\n          (submit)=\"onSubmit(myForm.value)\">\n\n      <div class=\"form-group\">\n        <label for=\"idInput\">ID</label>\n        <input type=\"text\"\n               class=\"form-control\"\n               id=\"idInput\"\n               placeholder=\"ID\"\n               [ng-form-control]=\"myForm.controls['id']\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"nameInput\">Name - </label>\n        <input type=\"text\"\n               class=\"form-control\"\n               id=\"nameInput\"\n               placeholder=\"Name\"\n               [ng-form-control]=\"myForm.controls['name']\">\n      </div>\n\n      <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n    </form>\n  </div>\n  "
+        }), 
+        __metadata('design:paramtypes', [angular2_2.FormBuilder])
+    ], BuilderForm);
+    return BuilderForm;
+})();
+exports.BuilderForm = BuilderForm;
+angular2_1.bootstrap(BuilderForm);
