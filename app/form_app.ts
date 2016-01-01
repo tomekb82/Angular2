@@ -109,8 +109,14 @@ export class BuilderForm {
         });
         this.id = this.myForm.controls['id'];
         this.code = this.myForm.controls['code'];
-    }
 
+        this.myForm.valueChanges.observer({ // TODO: new implementation using 'subscribe' function
+            next: (value) => {
+                console.log("form changed to: ", value);
+            }
+        })
+    }
+    
     onSubmit(value) {
         console.log('BuilderForm: you submitted value: ', value);
     }

@@ -47,6 +47,11 @@ var BuilderForm = (function () {
         });
         this.id = this.myForm.controls['id'];
         this.code = this.myForm.controls['code'];
+        this.myForm.valueChanges.observer({
+            next: function (value) {
+                console.log("form changed to: ", value);
+            }
+        });
     }
     BuilderForm.prototype.onSubmit = function (value) {
         console.log('BuilderForm: you submitted value: ', value);
