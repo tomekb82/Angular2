@@ -557,7 +557,7 @@ declare module "angular2/angular2" {
      * - `<template [if]="condition"><div>...</div></template>`
      *
      */
-    function If(): void;
+    function NgIf(): void;
 
     /**
      * The `NonBindable` directive tells Angular not to compile or bind the contents of the current

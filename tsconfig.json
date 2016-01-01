@@ -15,8 +15,8 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./typings/angular2/angular2.d.ts",
-        "./app/vote_app.ts"
-
+        "./app/vote_app.ts",
+        "./app/store_app.ts",
+        "./typings/angular2/angular2.d.ts"
     ]
 }

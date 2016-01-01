@@ -38,7 +38,7 @@ class Book {
 
 @Component({
     selector: 'vote-book',
-    properties: ['book'], // to change after upgrade angular
+    properties: ['book'], // TODO: after upgrade angular to 'inputs: ['book']
 })
 @View({
     template: `
