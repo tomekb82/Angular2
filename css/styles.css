@@ -147,3 +147,9 @@ nav ul li{
   margin: 0 20px 0 0;
   display:inline;
 }
+
+aside{
+  float:right;
+  padding: 10px;
+
+}
