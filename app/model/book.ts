@@ -1,5 +1,5 @@
-/// <reference path="../typings/angular2/angular2.d.ts" /
-export class Movie {
+/// <reference path="../../typings/angular2/angular2.d.ts" />
+export class Book {
     title: string;
     link: string;
     votes: number;
