@@ -46,7 +46,6 @@ var VoteBook = (function () {
     ], VoteBook);
     return VoteBook;
 })();
-angular2_1.bootstrap(VoteBook);
 var VoteApp = (function () {
     function VoteApp() {
         this.books = [
@@ -73,3 +72,20 @@ var VoteApp = (function () {
     return VoteApp;
 })();
 angular2_1.bootstrap(VoteApp);
+var HelloWorld = (function () {
+    function HelloWorld() {
+        this.names = ["ala", "ola", "kasia"];
+    }
+    HelloWorld = __decorate([
+        angular2_1.Component({
+            selector: 'hello-world'
+        }),
+        angular2_1.View({
+            directives: [angular2_1.NgFor],
+            template: "\n    <ul>\n        <li *ng-for=\"#name of names\"> Hello {{name}}</li>\n    </ul>\n    "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], HelloWorld);
+    return HelloWorld;
+})();
+angular2_1.bootstrap(HelloWorld);

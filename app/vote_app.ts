@@ -61,9 +61,7 @@ class VoteBook {
     book: Book;
 
 }
-bootstrap(VoteBook);
-
-
+//bootstrap(VoteBook);
 
 
 @Component({
@@ -109,4 +107,25 @@ class VoteApp {
 }
 bootstrap(VoteApp);
 
+///////////////////////////////////////////
+@Component({
+    selector: 'hello-world'
+})
+@View({
+    directives: [NgFor],
+    template: `
+    <ul>
+        <li *ng-for="#name of names"> Hello {{name}}</li>
+    </ul>
+    `
+})
+class HelloWorld {
+
+    names: Array<string>;
+
+    constructor(){
+        this.names = ["ala", "ola", "kasia"];
+    }
+}
+bootstrap(HelloWorld);
 
