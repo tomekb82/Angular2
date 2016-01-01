@@ -15,9 +15,10 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./voteApp.ts",
-        "./voteMovie.ts",
-        "./helloWorld.ts",
+        "./app/model/Movie.ts",
+        "./app/voteMovie.ts",
+        "./app/voteApp.ts",
+        "./app/helloWorld.ts",
         "./typings/angular2/angular2.d.ts"
     ]
 }

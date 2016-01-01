@@ -9,22 +9,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/// <reference path="typings/angular2/angular2.d.ts" />
+/// <reference path="../typings/angular2/angular2.d.ts" />
 var angular2_1 = require("angular2/angular2");
-var HelloWorld = (function () {
-    function HelloWorld() {
-        this.names = ["ala", "ola", "kasia"];
+var Movie_1 = require("app/model/Movie");
+var VoteMovie = (function () {
+    function VoteMovie() {
+        this.movie = new Movie_1.Movie("ee", "dd");
     }
-    HelloWorld = __decorate([
+    VoteMovie = __decorate([
         angular2_1.Component({
-            selector: 'hello-world'
+            selector: 'vote-movie'
         }),
         angular2_1.View({
-            directives: [angular2_1.NgFor],
-            template: "\n    <ul>\n        <li *ng-for=\"#name of names\"> Hello {{name}}</li>\n    </ul>\n    "
+            template: "\n        <article>\n            <div class=\"votes\">{{movie.votes}}</div>\n            <div class=\"main\">\n                <h2>\n                    <a href=\"{{movie.link}}\">{{movie.title}}</a>\n                </h2>\n                <ul>\n                    <li><a href (click)='movie.voteUp()'>upvote</a></li>\n                    <li><a href (click)='movie.voteDown()'>downvote</a></li>\n                </ul>\n            </div>\n        </article>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], HelloWorld);
-    return HelloWorld;
+    ], VoteMovie);
+    return VoteMovie;
 })();
-angular2_1.bootstrap(HelloWorld);
+exports.VoteMovie = VoteMovie;
+angular2_1.bootstrap(VoteMovie);
