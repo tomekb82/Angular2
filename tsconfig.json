@@ -16,6 +16,7 @@
     ],
     "files": [
         "./voteApp.ts",
+        "./voteMovie.ts",
         "./helloWorld.ts",
         "./typings/angular2/angular2.d.ts"
     ]

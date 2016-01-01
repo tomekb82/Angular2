@@ -1,17 +1,15 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 import {
     Component,
-    NgFor,
     View,
     bootstrap
 } from "angular2/angular2";
-
+import {VoteMovie} from "voteMovie"
 
 @Component({
     selector: 'vote'
 })
 @View({
-    directives: [NgFor],
     template: `
         <section class="new-link">
             <div class="control-group">
@@ -25,7 +23,10 @@ import {
 
             <button (click)="addVote(newtitle, newlink)">Submit</button>
         </section>
-    `
+
+        <vote-movie></vote-movie>
+    `,
+    directives: [VoteMovie]
 })
 class VoteApp {
     addVote(title,link){

@@ -11,23 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 /// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require("angular2/angular2");
-var voteMovie_1 = require("voteMovie");
-var VoteApp = (function () {
-    function VoteApp() {
+var VoteMovie = (function () {
+    function VoteMovie() {
+        this.votes = 10;
+        this.title = "Kleks";
+        this.link = "www.e.e";
     }
-    VoteApp.prototype.addVote = function (title, link) {
-        console.log("Adding vote, title=" + title.value + ", link=" + link.value);
+    VoteMovie.prototype.voteUp = function () {
+        this.votes += 1;
+        return false;
     };
-    VoteApp = __decorate([
+    VoteMovie.prototype.voteDown = function () {
+        this.votes -= 1;
+        return false;
+    };
+    VoteMovie = __decorate([
         angular2_1.Component({
-            selector: 'vote'
+            selector: 'vote-movie'
         }),
         angular2_1.View({
-            template: "\n        <section class=\"new-link\">\n            <div class=\"control-group\">\n                <div><label for=\"title\">Movie title</label></div>\n                <div><input name=\"title\" #newtitle></div>\n            </div>\n            <div class=\"control-group\">\n                <div><label for=\"link\">Link</label></div>\n                <div><input name=\"link\" #newlink></div>\n            </div>\n\n            <button (click)=\"addVote(newtitle, newlink)\">Submit</button>\n        </section>\n\n        <vote-movie></vote-movie>\n    ",
-            directives: [voteMovie_1.VoteMovie]
+            template: "\n        <article>\n            <div class=\"votes\">{{votes}}</div>\n            <div class=\"main\">\n                <h2>\n                    <a href=\"{{link}}\">{{title}}</a>\n                </h2>\n                <ul>\n                    <li><a href (click)='voteUp()'>upvote</a></li>\n                    <li><a href (click)='voteDown()'>downvote</a></li>\n                </ul>\n            </div>\n        </article>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], VoteApp);
-    return VoteApp;
+    ], VoteMovie);
+    return VoteMovie;
 })();
-angular2_1.bootstrap(VoteApp);
+exports.VoteMovie = VoteMovie;
+angular2_1.bootstrap(VoteMovie);
