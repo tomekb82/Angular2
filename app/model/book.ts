@@ -19,4 +19,9 @@ export class Book {
         this.votes -=1;
         return false;
     }
+
+    domain(){
+        var link = this.link.split('//')[1];
+        return link.split('/')[0];
+    }
 }

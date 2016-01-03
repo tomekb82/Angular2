@@ -11,3 +11,9 @@
 ## Install web server
 
    sudo npm install -g live-server
+
+## Run
+
+    tsc --watch
+
+    live-server
