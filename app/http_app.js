@@ -1,5 +1,4 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
-/// <reference path="../typings/angular2/http.d.ts" />
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -18,15 +17,14 @@ var SimpleHTTPComponent = (function () {
     function SimpleHTTPComponent(http) {
         this.http = http;
     }
-    SimpleHTTPComponent.prototype.saveR = function (res) {
-        this.data = res.json();
-        this.loading = false;
-    };
     SimpleHTTPComponent.prototype.sendRequest = function () {
+        var _this = this;
         this.loading = true;
-        console.log(this.http);
         this.http.request("http://jsonplaceholder.typicode.com/posts/1")
-            .toPromise().then(this.saveR.bind(this));
+            .subscribe(function (res) {
+            _this.data = res.json();
+            _this.loading = false;
+        });
     };
     SimpleHTTPComponent = __decorate([
         angular2_1.Component({

@@ -19,6 +19,7 @@
         "./app/form_app.ts",
         "./app/vote_app.ts",
         "./app/http_app.ts",
-        "./typings/angular2/angular2.d.ts"
+        "./typings/angular2/angular2.d.ts",
+        "./typings/angular2/http.d.ts"
     ]
 }

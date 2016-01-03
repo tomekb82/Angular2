@@ -1,13 +1,11 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
-/// <reference path="../typings/angular2/http.d.ts" />
 
 /*
  * Angular
  */
-import {Component, bootstrap, View, NgIf} from "angular2/angular2";
+import {Component, bootstrap, View, NgIf, Observable} from "angular2/angular2";
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Http, Response} from "angular2/http";
-
 
 /*
  * Components
@@ -34,23 +32,15 @@ class SimpleHTTPComponent {
     constructor(public http: Http) {
     }
 
-    saveR(res:Response):void{
-        this.data = res.json();
-        this.loading = false;
+    sendRequest(): void {
+        this.loading = true;
+
+        this.http.request("http://jsonplaceholder.typicode.com/posts/1")
+            .subscribe((res: Response) => {
+                this.data = res.json();
+                this.loading = false;
+        });
     }
-sendRequest(): void {
-   this.loading = true;
-    console.log(this.http);
-    this.http.request("http://jsonplaceholder.typicode.com/posts/1")
-        .toPromise().then(this.saveR.bind(this));
-/*
-     .toRx()
-     .subscribe((res: Response) => {
-     this.data = res.json();
-            console.log(this.data);
-     this.loading = false;
-     });*/
-}
 }
 
 @Component({
