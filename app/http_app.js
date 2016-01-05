@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require("angular2/angular2");
 var http_1 = require('angular2/http');
 var SimpleHTTPComponent_1 = require("app/http/SimpleHTTPComponent");
+var StandardHTTPComponent_1 = require("app/http/StandardHTTPComponent");
 var HttpApp = (function () {
     function HttpApp() {
     }
@@ -21,8 +22,8 @@ var HttpApp = (function () {
             selector: "http-app"
         }),
         angular2_1.View({
-            directives: [SimpleHTTPComponent_1.SimpleHTTPComponent],
-            template: "\n  <div class=\"container\">\n  <simple-http></simple-http>\n    <hr/>\n  </div>\n  "
+            directives: [SimpleHTTPComponent_1.SimpleHTTPComponent, StandardHTTPComponent_1.StandardHTTPComponent],
+            template: "\n  <div class=\"container\">\n  <simple-http></simple-http>\n    <hr/>\n    <standard-http></standard-http>\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], HttpApp);

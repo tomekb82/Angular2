@@ -11,16 +11,19 @@ import {Http, Response} from "angular2/http";
  * Components
  */
 import {SimpleHTTPComponent} from "app/http/SimpleHTTPComponent";
+import {StandardHTTPComponent} from "app/http/StandardHTTPComponent";
+
 
 @Component({
     selector: "http-app"
 })
 @View({
-    directives: [SimpleHTTPComponent],
+    directives: [SimpleHTTPComponent, StandardHTTPComponent],
     template: `
   <div class="container">
   <simple-http></simple-http>
     <hr/>
+    <standard-http></standard-http>
   </div>
   `
 })

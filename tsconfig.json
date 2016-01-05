@@ -16,6 +16,7 @@
     ],
     "files": [
         "./app/http/SimpleHTTPComponent.ts",
+        "./app/http/StandardHTTPComponent.ts",
         "./app/store_app.ts",
         "./app/form_app.ts",
         "./app/vote_app.ts",
