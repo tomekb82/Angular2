@@ -10,38 +10,7 @@ import {Http, Response} from "angular2/http";
 /*
  * Components
  */
-//import {SimpleHTTPComponent} from "app/http/SimpleHTTPComponent";
-
-
-@Component({
-    selector: "simple-http",
-})
-@View({
-    directives: [NgIf],
-    template: `
-  <h2>Simple HTTP</h2>
-  <button type="button" (click)="sendRequest()">Send Request</button>
-  <div *ng-if="loading">loading...</div>
-  <pre>{{data | json}}</pre>
-`
-})
-class SimpleHTTPComponent {
-    data: Object;
-    loading: boolean;
-
-    constructor(public http: Http) {
-    }
-
-    sendRequest(): void {
-        this.loading = true;
-
-        this.http.request("http://jsonplaceholder.typicode.com/posts/1")
-            .subscribe((res: Response) => {
-                this.data = res.json();
-                this.loading = false;
-        });
-    }
-}
+import {SimpleHTTPComponent} from "app/http/SimpleHTTPComponent";
 
 @Component({
     selector: "http-app"

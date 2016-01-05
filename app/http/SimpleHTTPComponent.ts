@@ -5,18 +5,19 @@
 /*
  * Angular
  */
-import {Component, View, NgIf} from "angular2/angular2";
+import {Component, bootstrap, View, NgIf, Observable} from "angular2/angular2";
+import {HTTP_BINDINGS} from 'angular2/http';
 import {Http, Response} from "angular2/http";
 
 @Component({
-  selector: "simple-http"
+  selector: "simple-http",
 })
 @View({
-  //directives: [NgIf],
+  directives: [NgIf],
   template: `
   <h2>Simple HTTP</h2>
-  <!--<button type="button" (click)="sendRequest()">Send Request</button>
-  <div *ng-if="loading">loading...</div>-->
+  <button type="button" (click)="sendRequest()">Send Request</button>
+  <div *ng-if="loading">loading...</div>
   <pre>{{data | json}}</pre>
 `
 })
@@ -28,13 +29,12 @@ export class SimpleHTTPComponent {
   }
 
   sendRequest(): void {
-    /*this.loading = true;
+    this.loading = true;
+
     this.http.request("http://jsonplaceholder.typicode.com/posts/1")
-      .toRx()
-      .subscribe((res: Response) => {
-        this.data = res.json();
-        this.loading = false;
-      });*/
+        .subscribe((res: Response) => {
+          this.data = res.json();
+          this.loading = false;
+        });
   }
 }
-
