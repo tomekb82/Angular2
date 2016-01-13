@@ -12,9 +12,14 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
     <script>
         System.config({
-            defaultJSExtensions: true
+            defaultJSExtensions: true,
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         });
     </script>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="vendor/rx.js"></script>
 
     <!-- Angular2 import -->
     <script src="http://code.angularjs.org/2.0.0-alpha.39/angular2.min.js"></script>

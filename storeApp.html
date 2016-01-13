@@ -7,10 +7,16 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Libraries -->
-    <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-    <script src="https://jspm.io/system@0.16.js"></script>
-    <script src="vendor/angular2.dev.js"></script>
+    <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.91/traceur-runtime.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+    <script>
+        System.config({
+            defaultJSExtensions: true
+        });
+    </script>
+
+    <!-- Angular2 import -->
+    <script src="http://code.angularjs.org/2.0.0-alpha.39/angular2.min.js"></script>
 </head>
 <body>
 

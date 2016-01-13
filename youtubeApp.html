@@ -7,36 +7,35 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
     <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.91/traceur-runtime.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
     <script>
         System.config({
-            defaultJSExtensions: true
+            defaultJSExtensions: true,
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
         });
     </script>
 
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="vendor/rx.js"></script>
+
     <!-- Angular2 import -->
     <script src="http://code.angularjs.org/2.0.0-alpha.39/angular2.min.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.39/http.js"></script>
+
 </head>
 <body>
 
-<script>
-    System.import('app/vote_app');
-    System.import('app/store_app');
-</script>
-
 <store-nav></store-nav>
 
-<section>
-    <aside>
-        <store-app></store-app>
-    </aside>
-    <vote></vote>
+<youtube-app></youtube-app>
 
-</section>
-
-
-<hello-world></hello-world>
+<script>
+    System.import('app/store_app');
+    System.import('app/youtube_app');
+</script>
 
 
 </body>

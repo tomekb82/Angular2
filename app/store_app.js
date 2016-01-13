@@ -29,7 +29,7 @@ var StoreNav = (function () {
             selector: 'store-nav'
         }),
         angular2_1.View({
-            template: "\n        <nav>\n            <ul>\n                <li><a href=\"/\">Home</a></li>\n                <li><a href=\"storeApp.html\">Product list</a></li>\n                <li><a href=\"voteApp.html\">Vote Book</a></li>\n                <li><a href=\"formApp.html\">Form Book</a></li>\n                <li><a href=\"httpApp.html\">Http</a></li>\n                <li>Help</li>\n             </ul>\n        </nav>\n    "
+            template: "\n        <nav>\n            <ul>\n                <li><a href=\"/\">Home</a></li>\n                <li><a href=\"storeApp.html\">Product list</a></li>\n                <li><a href=\"voteApp.html\">Vote Book</a></li>\n                <li><a href=\"formApp.html\">Form Book</a></li>\n                <li><a href=\"httpApp.html\">Http</a></li>\n                <li><a href=\"youtubeApp.html\">Youtube search</a></li>\n                <li>Help</li>\n             </ul>\n        </nav>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], StoreNav);

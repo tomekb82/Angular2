@@ -9,6 +9,7 @@ import {Component, bootstrap, View, NgIf, Observable} from "angular2/angular2";
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Http, Response} from "angular2/http";
 
+
 @Component({
   selector: "simple-http",
 })

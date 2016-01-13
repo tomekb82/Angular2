@@ -3,7 +3,7 @@
 /*
  * Angular
  */
-import {Component, bootstrap, View, NgIf, Observable} from "angular2/angular2";
+import {Component, bootstrap, View, NgIf} from "angular2/angular2";
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Http, Response} from "angular2/http";
 
@@ -12,7 +12,6 @@ import {Http, Response} from "angular2/http";
  */
 import {SimpleHTTPComponent} from "app/http/SimpleHTTPComponent";
 import {StandardHTTPComponent} from "app/http/StandardHTTPComponent";
-
 
 @Component({
     selector: "http-app"

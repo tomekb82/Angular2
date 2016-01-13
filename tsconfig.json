@@ -17,11 +17,12 @@
     "files": [
         "./app/http/SimpleHTTPComponent.ts",
         "./app/http/StandardHTTPComponent.ts",
+        "./app/http/YouTubeSearchComponent.ts",
         "./app/store_app.ts",
         "./app/form_app.ts",
         "./app/vote_app.ts",
         "./app/http_app.ts",
+        "./app/youtube_app.ts",
         "./typings/angular2/angular2.d.ts",
-        "./typings/angular2/http.d.ts"
-    ]
+        "./typings/angular2/http.d.ts"]
 }

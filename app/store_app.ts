@@ -37,6 +37,7 @@ class Product {
                 <li><a href="voteApp.html">Vote Book</a></li>
                 <li><a href="formApp.html">Form Book</a></li>
                 <li><a href="httpApp.html">Http</a></li>
+                <li><a href="youtubeApp.html">Youtube search</a></li>
                 <li>Help</li>
              </ul>
         </nav>

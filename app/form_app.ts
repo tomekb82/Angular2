@@ -1,14 +1,13 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 
 import {Component, bootstrap, View} from "angular2/angular2";
-import {formDirectives, FormBuilder, ControlGroup, Control, NgIf} from "angular2/angular2";
-import {Validators} from "angular2/angular2";
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Control, AbstractControl, NgIf,Validators} from 'angular2/angular2';
 
 @Component({
     selector: 'simple-form'
 })
 @View({
-    directives: [formDirectives],
+    directives: [FORM_DIRECTIVES],
     template: `
   <div>
     <h2>Simple form: Book store</h2>
@@ -17,8 +16,8 @@ import {Validators} from "angular2/angular2";
 
       <div class="form-group">
         <label for="idInput">ID</label>
-        <input type="text" 
-               class="form-control" 
+        <input type="text"
+               class="form-control"
                id="idInput"
                placeholder="Book id"
                ng-control="id">
@@ -45,10 +44,10 @@ function codeValidator(control) {
 
 @Component({
     selector: 'builder-form',
-    viewInjector: [FormBuilder]
+    viewBindings: [FormBuilder]
 })
 @View({
-    directives: [formDirectives, NgIf],
+    directives: [FORM_DIRECTIVES, NgIf],
     template: `
   <div>
     <h2>Form Builder: Book store</h2>
@@ -98,8 +97,8 @@ function codeValidator(control) {
 
 export class BuilderForm {
     myForm: ControlGroup;
-    id: Control;
-    code: Control;
+    id: AbstractControl;
+    code: AbstractControl;
 
     constructor(fb: FormBuilder) {
         this.myForm = fb.group({
