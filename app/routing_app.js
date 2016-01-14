@@ -27,7 +27,7 @@ var RouteApp = (function () {
         }),
         angular2_1.View({
             directives: [router_1.ROUTER_DIRECTIVES, LoginComponent_1.LoginComponent],
-            template: "\n\n    <div class=\"page-header\">\n        <div class=\"container\">\n            <h1> Router sample</h1>\n            <div class=\"navLinks\">\n                <a [router-link]=\"['/Home']\">Home</a>\n                <a [router-link]=\"['/AboutUs']\">About Us</a>\n                <a [router-link]=\"['/ContactUs']\">Contact Us</a>\n                <a [router-link]=\"['/Protected']\">Protected</a>\n            </div>\n        </div>\n    </div>\n    <div class=\"content\">\n        <div class=\"container\">\n        <login></login>\n\n        <hr>\n\n        <router-outlet></router-outlet>\n        </div>\n    </div>\n\n\n  "
+            template: "\n\n    <div class=\"page-header\">\n        <div class=\"container\">\n            <h1> Router sample</h1>\n            <div class=\"navLinks\">\n                <a [router-link]=\"['/Home']\">Home</a>\n                <a [router-link]=\"['/AboutUs']\">About Us</a>\n                <a [router-link]=\"['/ContactUs']\">Contact Us</a>\n                <a [router-link]=\"['/Protected']\">Protected</a>\n               <!--<a [router-link]=\"['/Products']\">Products</a>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"content\">\n        <div class=\"container\">\n        <login></login>\n\n        <hr>\n\n        <router-outlet></router-outlet>\n        </div>\n    </div>\n\n\n  "
         }),
         router_1.RouteConfig([
             { path: '/', component: HomeComponent_1.HomeComponent, as: 'Home' },

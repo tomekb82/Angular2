@@ -137,7 +137,7 @@ export class SearchComponent implements OnInit{
     }
 
     saveResults(res:Response): void {
-        this.results = res.join();
+        this.results = res.json();
         console.log("saveResults, res= " + this.results);
     }
 

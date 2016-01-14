@@ -82,7 +82,7 @@ var SearchComponent = (function () {
         this.results = this.spotify.searchTrack(this.query);
     };
     SearchComponent.prototype.saveResults = function (res) {
-        this.results = res.join();
+        this.results = res.json();
         console.log("saveResults, res= " + this.results);
     };
     SearchComponent = __decorate([

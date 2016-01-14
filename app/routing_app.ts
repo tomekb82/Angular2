@@ -14,6 +14,7 @@ import {HomeComponent} from "app/routing/HomeComponent";
 import {ContactComponent} from "app/routing/ContactComponent";
 import {AboutComponent} from "app/routing/AboutComponent";
 import {ProtectedComponent} from "app/routing/ProtectedComponent";
+import {ProductComponent} from "app/routing/product/ProductComponent";
 
 import {AUTH_PROVIDERS} from "app/auth/AuthService";
 
@@ -35,6 +36,7 @@ import {LoginComponent} from "app/auth/LoginComponent";
                 <a [router-link]="['/AboutUs']">About Us</a>
                 <a [router-link]="['/ContactUs']">Contact Us</a>
                 <a [router-link]="['/Protected']">Protected</a>
+               <!--<a [router-link]="['/Products']">Products</a>-->
             </div>
         </div>
     </div>
@@ -57,6 +59,8 @@ import {LoginComponent} from "app/auth/LoginComponent";
     {path: '/aboutus', component: AboutComponent, as: 'AboutUs'  },
     {path: '/contactus', component: ContactComponent, as: 'ContactUs'  },
     {path: '/protected', component: ProtectedComponent, as: 'Protected'  }
+    //{path: '/products/...', component: ProductComponent, as: 'Products'  },
+
 ])
 
 class RouteApp {
