@@ -19,7 +19,7 @@ var ContactComponent = (function () {
             selector: 'contact'
         }),
         angular2_1.View({
-            template: "\n  <h1> About! </h1>\n  "
+            template: "\n  <h1> Contact us ! </h1>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ContactComponent);

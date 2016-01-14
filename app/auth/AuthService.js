@@ -30,7 +30,8 @@ var AuthService = (function () {
         return localStorage.getItem("username");
     };
     AuthService.prototype.isLogged = function () {
-        return this.getUser !== null;
+        console.log("g isLogged: " + this.getUser() !== null);
+        return this.getUser() !== null;
     };
     AuthService = __decorate([
         angular2_1.Injectable(), 

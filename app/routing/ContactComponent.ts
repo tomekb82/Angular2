@@ -7,7 +7,7 @@ import {Component, View} from "angular2/angular2";
 })
 @View({
     template: `
-  <h1> About! </h1>
+  <h1> Contact us ! </h1>
   `
 })
 

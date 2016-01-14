@@ -11,18 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var HomeComponent = (function () {
-    function HomeComponent() {
+var router_1 = require('angular2/router');
+var AuthService_1 = require("app/auth/AuthService");
+var ProtectedComponent = (function () {
+    function ProtectedComponent() {
     }
-    HomeComponent = __decorate([
+    ProtectedComponent = __decorate([
+        router_1.CanActivate(function (nextInstr, currInstr) {
+            var injector = angular2_1.Injector.resolveAndCreate([AuthService_1.AuthService]);
+            var authService = injector.get(AuthService_1.AuthService);
+            console.log('nextInstr', nextInstr);
+            console.log('currInstr', currInstr);
+            return authService.isLogged();
+        }),
         angular2_1.Component({
-            selector: 'home'
+            selector: 'protected',
+            providers: [AuthService_1.AuthService]
         }),
         angular2_1.View({
-            template: "\n  <h1> Welcome! </h1>\n  "
+            template: "\n        <h1>Protected</h1>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], HomeComponent);
-    return HomeComponent;
+    ], ProtectedComponent);
+    return ProtectedComponent;
 })();
-exports.HomeComponent = HomeComponent;
+exports.ProtectedComponent = ProtectedComponent;
+angular2_1.bootstrap(ProtectedComponent);
