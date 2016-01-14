@@ -1,7 +1,7 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 /// <reference path="../../typings/angular2/http.d.ts" />
 
-import {Component, View, OnInit, NgFor, NgIf, Inject} from "angular2/angular2";
+import {Component, View, OnInit, NgFor, NgIf, Inject, Injectable, bind} from "angular2/angular2";
 
 import {Router, RouterLink, RouteParams} from 'angular2/router';
 
@@ -22,10 +22,21 @@ class SpotifyService{
         if(params){
             queryURL = `${queryURL}?${params.join("&")}`;
         }
+        console.log(queryURL);
         this.http.get(queryURL)
             .map((res: Response) => res.json())
             .subscribe(res => this.result = res);
+
+        console.log(this.result);
         return this.result;
+    }
+    query2(URL: string, params?: Array<string>): Promise<Response>{
+        let queryURL:string =  `${SPOTIFY_BASE_URL}${URL}`;
+        if(params){
+            queryURL = `${queryURL}?${params.join("&")}`;
+        }
+        console.log(queryURL);
+        return this.http.get(queryURL).toPromise();
     }
 
     search(query:string, type:string): Object{
@@ -37,8 +48,8 @@ class SpotifyService{
     searchTrack(query:string): Object{
         return this.search(query, "track");
     }
-    getTrack(id:string): Object{
-        return this.query(`/tracks/${id}`);
+    getTrack(id:string) : Promise<Response>{
+        return this.query2(`/tracks/${id}`);
     }
 }
 
@@ -80,9 +91,7 @@ class SpotifyService{
                                     {{t.name}}
                                 </a>
                             </p>
-                            <p>
-                                <audio controls src="{{t.preview_url}}"></audio>
-                            </p>
+                         
                         </div>
                         <div class="attribution">
                             <h4>
@@ -98,7 +107,6 @@ class SpotifyService{
         </p>
   `
 })
-
 
 export class SearchComponent implements OnInit{
 
@@ -133,4 +141,66 @@ export class SearchComponent implements OnInit{
         console.log("saveResults, res= " + this.results);
     }
 
+}
+
+
+@Component({
+    selector: 'tracks',
+    providers: [SpotifyService]
+})
+@View({
+    template: `
+  <h1> {{results.artists[0].name}} </h1>
+
+           <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                    <div class="caption">
+                            <h3>
+                            {{results.album.name}}
+
+                            </h3>
+
+                        </div>
+                        <div class="thumbnail">
+                            <div class="content">
+                                <img src="{{ results.album.images[0].url}}" class="img-responsive">
+                            </div>
+                        </div>
+                         <div class="attribution">
+                            <h4>
+
+{{results.name}}
+                            </h4>
+                        </div>
+                        <div class="caption">
+
+                            <p>
+                                <audio controls src="{{results.preview_url}}"></audio>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+  `
+})
+export class TracksComponent  implements OnInit{
+
+    id:string;
+    results: Object;
+    onInit(): void{
+        this.search();
+    }
+
+    search(): void{
+        this.spotify.getTrack(this.id).then(this.saveResults.bind(this));
+    }
+
+    saveResults(res:Response): void {
+        this.results = res.json();
+    }
+
+    constructor(public spotify: SpotifyService,
+                private routeParams: RouteParams){
+        this.id = routeParams.get("id");
+    }
 }

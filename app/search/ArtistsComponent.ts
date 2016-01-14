@@ -9,7 +9,7 @@ import {RouteParams} from 'angular2/router';
 })
 @View({
     template: `
-  <h1> Albums ! </h1>
+  <h1> Artists ! </h1>
   `
 })
 

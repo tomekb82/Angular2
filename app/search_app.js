@@ -15,7 +15,6 @@ var http_1 = require('angular2/http');
 var router_1 = require('angular2/router');
 var SearchComponent_1 = require("app/search/SearchComponent");
 var ArtistsComponent_1 = require("app/search/ArtistsComponent");
-var TracksComponent_1 = require("app/search/TracksComponent");
 var AlbumsComponent_1 = require("app/search/AlbumsComponent");
 var SearchApp = (function () {
     function SearchApp() {
@@ -32,11 +31,12 @@ var SearchApp = (function () {
             { path: '/', redirectTo: '/search' },
             { path: '/search', component: SearchComponent_1.SearchComponent, as: 'Search' },
             { path: '/artists/:id', component: ArtistsComponent_1.ArtistsComponent, as: 'Artists' },
-            { path: '/tracks/:id', component: TracksComponent_1.TracksComponent, as: 'Tracks' },
+            { path: '/tracks/:id', component: SearchComponent_1.TracksComponent, as: 'Tracks' },
             { path: '/albums/:id', component: AlbumsComponent_1.AlbumsComponent, as: 'Albums' }
         ]), 
         __metadata('design:paramtypes', [])
     ], SearchApp);
     return SearchApp;
 })();
-angular2_1.bootstrap(SearchApp, [router_1.ROUTER_PROVIDERS, http_1.HTTP_BINDINGS, angular2_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);
+angular2_1.bootstrap(SearchApp, [router_1.ROUTER_PROVIDERS, http_1.HTTP_BINDINGS,
+    angular2_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);

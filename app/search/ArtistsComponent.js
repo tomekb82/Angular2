@@ -22,7 +22,7 @@ var ArtistsComponent = (function () {
             selector: 'artists'
         }),
         angular2_1.View({
-            template: "\n  <h1> Albums ! </h1>\n  "
+            template: "\n  <h1> Artists ! </h1>\n  "
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof router_1.RouteParams !== 'undefined' && router_1.RouteParams) === 'function' && _a) || Object])
     ], ArtistsComponent);

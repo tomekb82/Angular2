@@ -14,9 +14,9 @@ import {RouteConfig,  ROUTER_DIRECTIVES, ROUTER_PROVIDERS,
 /*
  * Components
  */
-import {SearchComponent} from "app/search/SearchComponent";
+import {SearchComponent, TracksComponent} from "app/search/SearchComponent";
 import {ArtistsComponent} from "app/search/ArtistsComponent";
-import {TracksComponent} from "app/search/TracksComponent";
+//import {TracksComponent} from "app/search/TracksComponent";
 import {AlbumsComponent} from "app/search/AlbumsComponent";
 
 @Component({
@@ -42,5 +42,6 @@ class SearchApp {
 
 }
 
-bootstrap(SearchApp, [ROUTER_PROVIDERS, HTTP_BINDINGS/*, spotifyServiceInjectables*/   ,  provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+bootstrap(SearchApp, [ROUTER_PROVIDERS, HTTP_BINDINGS
+    /*, spotifyServiceInjectables*/   ,  provide(LocationStrategy, {useClass: HashLocationStrategy})]);
 
