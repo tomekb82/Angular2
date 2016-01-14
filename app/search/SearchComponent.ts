@@ -91,7 +91,7 @@ class SpotifyService{
                                     {{t.name}}
                                 </a>
                             </p>
-                         
+
                         </div>
                         <div class="attribution">
                             <h4>

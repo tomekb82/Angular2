@@ -24,6 +24,8 @@
         "./app/search/AlbumsComponent.ts",
         "./app/search/SearchComponent.ts",
         "./app/search/ArtistsComponent.ts",
+        "./app/auth/LoginComponent.ts",
+        "./app/auth/AuthService.ts",
         "./app/store_app.ts",
         "./app/form_app.ts",
         "./app/vote_app.ts",

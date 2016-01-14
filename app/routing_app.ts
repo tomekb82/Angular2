@@ -14,12 +14,15 @@ import {HomeComponent} from "app/routing/HomeComponent";
 import {ContactComponent} from "app/routing/ContactComponent";
 import {AboutComponent} from "app/routing/AboutComponent";
 
+
 @Component({
     selector: "route-app"
 })
 @View({
     directives: [ROUTER_DIRECTIVES],
-   template: `<div class="grayColor"><a [router-link]="['/Home']">Home</a>
+   template: `
+
+   <div class="grayColor"><a [router-link]="['/Home']">Home</a>
         <a [router-link]="['/AboutUs']">About Us</a>
         <a [router-link]="['/ContactUs']">Contact Us</a>
 

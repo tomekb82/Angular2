@@ -24,7 +24,7 @@ var RouteApp = (function () {
         }),
         angular2_1.View({
             directives: [router_1.ROUTER_DIRECTIVES],
-            template: "<div class=\"grayColor\"><a [router-link]=\"['/Home']\">Home</a>\n        <a [router-link]=\"['/AboutUs']\">About Us</a>\n        <a [router-link]=\"['/ContactUs']\">Contact Us</a>\n\n    </div><hr>\n\n    <router-outlet></router-outlet>\n  "
+            template: "\n\n   <div class=\"grayColor\"><a [router-link]=\"['/Home']\">Home</a>\n        <a [router-link]=\"['/AboutUs']\">About Us</a>\n        <a [router-link]=\"['/ContactUs']\">Contact Us</a>\n\n    </div><hr>\n\n    <router-outlet></router-outlet>\n  "
         }),
         router_1.RouteConfig([
             { path: '/', component: HomeComponent_1.HomeComponent, as: 'Home' },

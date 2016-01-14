@@ -11,20 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var LoginComponent_1 = require("app/auth/LoginComponent");
-var HomeComponent = (function () {
-    function HomeComponent() {
+var AuthService = (function () {
+    function AuthService() {
     }
-    HomeComponent = __decorate([
-        angular2_1.Component({
-            selector: 'home'
-        }),
-        angular2_1.View({
-            directives: [LoginComponent_1.LoginComponent],
-            template: "\n  <h1> Welcome! </h1>\n\n  <login></login>\n  "
-        }), 
+    AuthService.prototype.login = function (user, password) {
+        console.log("login srv");
+        if (user === "user" && password === "password") {
+            localStorage.setItem("username", user);
+            return true;
+        }
+        return false;
+    };
+    AuthService.prototype.logout = function () {
+        localStorage.removeItem("username");
+    };
+    AuthService.prototype.getUser = function () {
+        console.log("g srvetUser");
+        return localStorage.getItem("username");
+    };
+    AuthService.prototype.isLogged = function () {
+        return this.getUser !== null;
+    };
+    AuthService = __decorate([
+        angular2_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], HomeComponent);
-    return HomeComponent;
+    ], AuthService);
+    return AuthService;
 })();
-exports.HomeComponent = HomeComponent;
+exports.AuthService = AuthService;
+exports.AUTH_PROVIDERS = [
+    angular2_1.provide(AuthService, { useClass: AuthService })
+];
