@@ -39,6 +39,7 @@ class Product {
                 <li><a href="httpApp.html">Http</a></li>
                 <li><a href="youtubeApp.html">Youtube search</a></li>
                   <li><a href="routingApp.html">Routing</a></li>
+                  <li><a href="searchApp.html">Search app</a></li>
                 <li>Help</li>
              </ul>
         </nav>

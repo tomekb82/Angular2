@@ -41,8 +41,8 @@ let YOUTUBE_API_URL: string = "https://www.googleapis.com/youtube/v3/search";
 export class YouTubeService {
     constructor(public http: Http,
                 @Inject(YOUTUBE_API_KEY) private apiKey: string,
-    @Inject(YOUTUBE_API_URL) private apiUrl: string) {
-}
+                @Inject(YOUTUBE_API_URL) private apiUrl: string) {
+    }
 
 search(query: string): Rx.Observable<SearchResult[]> {
     let params: string = [
