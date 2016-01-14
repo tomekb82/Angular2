@@ -8,6 +8,7 @@ import {Router, RouterLink, RouteParams} from 'angular2/router';
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Http, Response} from "angular2/http";
 
+let SPOTIFY_BASE_URL: string = "http://api.spotify.com/v1";
 
 class SpotifyService{
     result:Object;
@@ -16,18 +17,28 @@ class SpotifyService{
        this.http = http;
     }
 
-    searchByTrack(query:string): /*Promise<Response>*/Object{
-        let params: string = [
-            `q=${query}`,
-            `type=track`,
-        ].join("&");
-        let queryURL:string =  `http://api.spotify.com/v1/search?${params}`;
-        //return this.http.get(queryURL).toPromise();
+    query(URL: string, params?: Array<string>) : Object{
+        let queryURL:string =  `${SPOTIFY_BASE_URL}${URL}`;
+        if(params){
+            queryURL = `${queryURL}?${params.join("&")}`;
+        }
         this.http.get(queryURL)
             .map((res: Response) => res.json())
             .subscribe(res => this.result = res);
-
         return this.result;
+    }
+
+    search(query:string, type:string): Object{
+        return this.query(`/search`,[
+            `q=${query}`,
+            `type=${type}`,
+        ]);
+    }
+    searchTrack(query:string): Object{
+        return this.search(query, "track");
+    }
+    getTrack(id:string): Object{
+        return this.query(`/tracks/${id}`);
     }
 }
 
@@ -70,7 +81,7 @@ class SpotifyService{
                                 </a>
                             </p>
                             <p>
-                                <audio id="{{t.id}]" controls src="{{t.preview_url}}"></audio>
+                                <audio controls src="{{t.preview_url}}"></audio>
                             </p>
                         </div>
                         <div class="attribution">
@@ -113,7 +124,7 @@ export class SearchComponent implements OnInit{
         if(!this.query){
             return
         }
-        this.results = this.spotify.searchByTrack(this.query);
+        this.results = this.spotify.searchTrack(this.query);
         //this.spotify.searchByTrack(this.query).then(this.saveResults/*.bind(this)*/);
     }
 
